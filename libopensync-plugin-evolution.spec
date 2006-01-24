@@ -10,6 +10,7 @@ Source0:	http://www.opensync.org/attachment/wiki/download/%{name}2-%{version}.ta
 URL:		http://www.opensync.org/
 BuildRequires:	evolution-devel
 BuildRequires:	libopensync-devel
+Obsoletes:	multisync-evolution
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
