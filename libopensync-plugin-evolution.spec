@@ -1,12 +1,13 @@
 Summary:	OpenSync Evolution plugin
 Summary(pl):	Wtyczka Evolution do OpenSync
 Name:		libopensync-plugin-evolution
-Version:	0.18
+Version:	0.19
 Release:	0.1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.opensync.org/attachment/wiki/download/%{name}2-%{version}.tar.gz?format=raw
-# Source0-md5:	64f182fa37483419ca09721dec2d6f1e
+Source0:	%{name}2-%{version}.tar.gz
+# Source0-md5:	c43a85a1d5ef3059eef8058b5ebe9f0a
+#Source0:	http://www.opensync.org/attachment/wiki/download/%{name}2-%{version}.tar.gz?format=raw
 URL:		http://www.opensync.org/
 BuildRequires:	evolution-devel
 BuildRequires:	libopensync-devel
