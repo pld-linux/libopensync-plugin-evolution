@@ -1,5 +1,5 @@
 Summary:	OpenSync Evolution plugin
-Summary(pl):	Wtyczka Evolution do OpenSync
+Summary(pl.UTF-8):   Wtyczka Evolution do OpenSync
 Name:		libopensync-plugin-evolution
 Version:	0.19
 Release:	0.1
@@ -23,14 +23,14 @@ a powerful sync-engine and the framework itself.
 
 This package contains Evolution plugin for OpenSync framework.
 
-%description -l pl
-OpenSync to niezale¿ny od platformy i dystrybucji szkielet do
+%description -l pl.UTF-8
+OpenSync to niezaleÅ¼ny od platformy i dystrybucji szkielet do
 synchronizacji danych.
 
-Sk³ada siê z ró¿nych wtyczek, których mo¿na u¿ywaæ do ³±czenia z
-urz±dzeniami, potê¿nego silnika synchronizacji oraz samego szkieletu.
+SkÅ‚ada siÄ™ z rÃ³Å¼nych wtyczek, ktÃ³rych moÅ¼na uÅ¼ywaÄ‡ do Å‚Ä…czenia z
+urzÄ…dzeniami, potÄ™Å¼nego silnika synchronizacji oraz samego szkieletu.
 
-Ten pakiet zawiera wtyczkê Evolution dla szkieletu OpenSync.
+Ten pakiet zawiera wtyczkÄ™ Evolution dla szkieletu OpenSync.
 
 %prep
 %setup -q -n %{name}2-%{version}
