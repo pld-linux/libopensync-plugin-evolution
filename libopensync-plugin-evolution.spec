@@ -8,8 +8,10 @@ Group:		Libraries
 Source0:	http://www.opensync.org/attachment/wiki/download/%{name}2-%{version}.tar.bz2?format=raw
 # Source0-md5:	c4419dd2451bd1595fe42fcf96a9ba45
 URL:		http://www.opensync.org/
-BuildRequires:	evolution-devel
+BuildRequires:	evolution-data-server-devel >= 1.2
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libopensync-devel >= %{version}
+BuildRequires:	pkgconfig
 Obsoletes:	multisync-evolution
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,12 +46,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/*.so
-%{_libdir}/opensync/plugins/*.la
-%{_datadir}/opensync/defaults/*
+%attr(755,root,root) %{_libdir}/opensync/plugins/evo2_sync.so
+%{_datadir}/opensync/defaults/evo2-sync
+
+# devel
+#%{_includedir}/opensync-1.0/opensync/evo2_sync.h
