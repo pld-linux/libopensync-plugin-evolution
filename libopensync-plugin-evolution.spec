@@ -1,12 +1,12 @@
 Summary:	OpenSync Evolution plugin
 Summary(pl.UTF-8):	Wtyczka Evolution do OpenSync
 Name:		libopensync-plugin-evolution
-Version:	0.22
+Version:	0.36
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.opensync.org/attachment/wiki/download/%{name}2-%{version}.tar.bz2?format=raw
-# Source0-md5:	c4419dd2451bd1595fe42fcf96a9ba45
+Source0:	http://www.opensync.org/download/releases/0.36/%{name}2-%{version}
+# Source0-md5:	eb65be802e4da31df012c6674d60d218
 URL:		http://www.opensync.org/
 BuildRequires:	evolution-data-server-devel >= 1.2
 BuildRequires:	glib2-devel >= 2.0
@@ -37,13 +37,21 @@ Ten pakiet zawiera wtyczkę Evolution dla szkieletu OpenSync.
 %setup -q -n %{name}2-%{version}
 
 %build
-%configure
+mkdir build
+cd build
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+%if "%{_lib}" != "lib"
+	-DLIB_SUFFIX=64 \
+%endif
+	../
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
@@ -53,9 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/evo2_sync.so
-%{_datadir}/opensync/defaults/evo2-sync
+%doc README
+%attr(755,root,root) %{_libdir}/opensync-1.0/plugins/evo2-sync.so
+%{_datadir}/opensync-1.0/defaults/evo2-sync
 
 # devel
 #%{_includedir}/opensync-1.0/opensync/evo2_sync.h
