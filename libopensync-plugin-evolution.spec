@@ -10,7 +10,7 @@ Source0:	http://www.opensync.org/download/releases/0.36/%{name}2-%{version}
 URL:		http://www.opensync.org/
 BuildRequires:	evolution-data-server-devel >= 1.2
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	libopensync-devel >= %{version}
+BuildRequires:	libopensync-devel >= 1:%{version}
 BuildRequires:	pkgconfig
 Obsoletes:	multisync-evolution
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
