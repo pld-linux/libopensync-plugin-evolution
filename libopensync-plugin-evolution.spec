@@ -1,12 +1,12 @@
 Summary:	OpenSync Evolution plugin
 Summary(pl.UTF-8):	Wtyczka Evolution do OpenSync
 Name:		libopensync-plugin-evolution
-Version:	0.36
-Release:	3
+Version:	0.39
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.opensync.org/download/releases/0.36/%{name}2-%{version}
-# Source0-md5:	eb65be802e4da31df012c6674d60d218
+Source0:	http://www.opensync.org/download/releases/%{version}/%{name}2-%{version}.tar.bz2
+# Source0-md5:	54d2fc3c80c29f3ac5feb609b082c99d
 URL:		http://www.opensync.org/
 BuildRequires:	evolution-data-server-devel >= 1.2
 BuildRequires:	glib2-devel >= 2.0
@@ -16,8 +16,8 @@ Obsoletes:	multisync-evolution
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-OpenSync is a synchronization framework that is platform and distribution
-independent.
+OpenSync is a synchronization framework that is platform and
+distribution independent.
 
 It consists of several plugins that can be used to connect to devices,
 a powerful sync-engine and the framework itself.
@@ -39,12 +39,12 @@ Ten pakiet zawiera wtyczkę Evolution dla szkieletu OpenSync.
 %build
 mkdir build
 cd build
-%cmake \
+%cmake .. \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 %if "%{_lib}" != "lib"
-	-DLIB_SUFFIX=64 \
+	-DLIB_SUFFIX=64
 %endif
-	../
 
 %{__make}
 
@@ -62,8 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_libdir}/opensync-1.0/plugins/evo2-sync.so
-%{_datadir}/opensync-1.0/defaults/evo2-sync
-
-# devel
-#%{_includedir}/opensync-1.0/opensync/evo2_sync.h
+%attr(755,root,root) %{_libdir}/libopensync1/formats/evo2-format.so
+%attr(755,root,root) %{_libdir}/libopensync1/plugins/evo2-sync.so
+%{_datadir}/libopensync1/defaults/evo2-sync
