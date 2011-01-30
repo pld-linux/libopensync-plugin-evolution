@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.opensync.org/download/releases/%{version}/%{name}2-%{version}.tar.bz2
 # Source0-md5:	54d2fc3c80c29f3ac5feb609b082c99d
 URL:		http://www.opensync.org/
+BuildRequires:	cmake
 BuildRequires:	evolution-data-server-devel >= 1.2
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libopensync-devel >= 1:%{version}
