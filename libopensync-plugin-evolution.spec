@@ -2,7 +2,7 @@ Summary:	OpenSync Evolution plugin
 Summary(pl.UTF-8):	Wtyczka Evolution do OpenSync
 Name:		libopensync-plugin-evolution
 Version:	0.39
-Release:	3
+Release:	4
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opensync.org/download/releases/%{version}/%{name}2-%{version}.tar.bz2
